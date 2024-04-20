@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+
+header {
+  font-family: 'Source Sans Pro', sans-serif;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1b1b1d;
+  padding: 5px 20px;
+  height: 93px;
+  box-shadow: 0 0 7px #26A69A;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+.header-title {
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 3.5em;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.center-links a {
+  text-decoration: none;
+  text-align: center;
+  font-size: 3.4em;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.center-links a:hover {
+  color: #22cebd;
+}
+
+.header-title:hover {
+  color: #22cebd;
+}
+
+.time-box {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  width: 250px;
+  text-align: center;
+  align-items: center;
+  background-color: #1F2029;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.time {
+  font-family: 'poppins', sans-serif;
+  font-size: 2.8em;
+  color: #fff;
+}

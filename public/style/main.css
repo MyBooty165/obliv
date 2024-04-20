@@ -42,7 +42,7 @@ input:focus {
 .app {
   margin-left: 25px;
   margin-right: 25px;
-  margin-top: 10px;
+  margin-top: 25px;
   border-radius: 50%;
   background-color: #4f4f4f;
   width: 70px;
@@ -71,4 +71,5 @@ input:focus {
 #apps {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }

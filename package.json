@@ -1,8 +1,9 @@
 {
   "dependencies": {
-    "@tomphttp/bare-server-node": "^1.0.2-beta-readme2",
+    "@tomphttp/bare-server-node": "^1.2.6",
     "bare-server-node": "github:tomphttp/bare-server-node",
-    "node-static": "^0.7.11"
+    "node-static": "^0.7.11",
+    "serve-static": "^1.15.0"
   },
   "name": "oblivion",
   "version": "1.0.0",
@@ -10,7 +11,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ."
+    "start": "node index.js"
   },
   "keywords": [
     "proxy"

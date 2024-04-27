@@ -1,18 +1,22 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
+const frame = document.getElementById('frame');
 
 form.addEventListener('submit', async event => {
     event.preventDefault();
-    let url = input.value.trim();
-    if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
-    else if (!(url.startsWith('https://') || url.startsWith('http://'))) url = 'http://' + url;
+    window.navigator.serviceWorker.register('./sw.js', {
+        scope: __uv$config.prefix
+    }).then(() => {
+        let url = input.value.trim();
+        if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
+        else if (!(url.startsWith('https://') || url.startsWith('http://'))) url = 'http://' + url;
 
-    const uvUrl = encodeURIComponent(url);
-
-    window.location.href = `search.html?serivce=${uvUrl}`;
+        const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(url);
+        frame.src = encodedUrl;
+    });
 });
 
-function isUrl(val = ''){
+function isUrl(val = '') {
     if (/^http(s?):\/\//.test(val) || val.includes('.') && val.substr(0, 1) !== ' ') return true;
     return false;
 };

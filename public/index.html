@@ -44,11 +44,84 @@
         <p class="app-title">CrazyGames</p>
       </div>
     </div>
+    <div id="output" style="display: none;">
+      <div class="output-header">
+        <div class="output-left">
+          <div class="output-btns">
+            <button title="Go Back" class="output-backward" onclick="back()"><i class="fas fa-arrow-left"></i></button>
+            <button title="Go Forward" class="output-forward" onclick="forward()"><i class="fas fa-arrow-right"></i></button>
+            <button title="Reload" class="output-refresh" onclick="refresh()"><i class="fas fa-rotate-right"></i></button>
+            <button title="Fullscreen" id="output-full" class="output-full" onclick="full()"><i class="fas fa-expand"></i></button>
+            <button title="Close" style="font-size: 30px;" class="output-close" onclick="close()"><i class="fas fa-xmark"></i></button>
+          </div>
+        </div>
+        <div class="output-right">
+          <form class="output-form">
+            <input class="output-input" placeholder="Search Freely">
+          </form>
+        </div>
+    </div>
+      <iframe src="https://bing.com" id="frame"></iframe>
+    </div>
   </main>
+  <script>
+    const iframe = document.getElementById('frame');
+    const output = document.getElementById('output');
+    const input = document.querySelector('.output-input');
+
+    function back() {
+      if (iframe) {
+        iframe.contentWindow.history.back()
+      } else {
+        console.error("No iframe found")
+      }
+    }
+
+    function forward() {
+      if (iframe) {
+        iframe.contentWindow.history.forward()
+      } else {
+        console.error("No iframe found")
+      }
+    }
+
+    function refresh() {
+      iframe.src = iframe.src
+    }
+
+    function full() {
+      if (iframe.requestFullscreen) {
+          iframe.requestFullscreen();
+      } else if (iframe.mozRequestFullScreen) {
+          iframe.mozRequestFullScreen();
+      } else if (iframe.webkitRequestFullscreen) {
+          iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+          iframe.msRequestFullscreen();
+      }
+    }
+
+    iframe.addEventListener('load', function() {
+      input.placeholder = "" + iframe.src;
+    });
+
+    function close() {
+      output.style.display = 'none';
+    }
+  </script>
   <script src="/scripts/time.js"></script>
   <script src="/uv/uv.bundle.js"></script>
   <script src="/uv/uv.config.js"></script>
   <script src="/scripts/uv.js"></script>
   <script src="/scripts/apps.js"></script>
+  <script>
+    const forms = document.querySelector('form');
+    const output = document.getElementById('output');
+
+    forms.addEventListener('submit', function(event) {
+      event.preventDefault();
+      output.style.display = 'block';
+    });
+  </script>
 </body>
 </html>
